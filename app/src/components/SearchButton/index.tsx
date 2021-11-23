@@ -1,9 +1,18 @@
 import React from 'react'
 
-import { Container } from './styles'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
+import { Container, Icon } from './styles'
 
 const SearchButton = () => {
-  return <Container>Hello from the Component</Container>
+  const handleOnClick = () => {
+    console.log('click')
+  }
+  return (
+    <Container onClick={handleOnClick}>
+      <Icon icon={faSearch} />
+    </Container>
+  )
 }
 
 export default SearchButton

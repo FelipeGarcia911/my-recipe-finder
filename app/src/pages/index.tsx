@@ -10,6 +10,7 @@ import { styled, theme } from '@/styles/theme'
 import logoImage from '@/images/logo.png'
 import bgImage from '@/images/home-background.jpg'
 import Typography from '@/styles/typography'
+import SearchButton from '@/components/SearchButton'
 
 const Title = styled(Typography.Title2)`
   text-align: center;
@@ -28,6 +29,7 @@ const IndexPage = () => {
         </Hero>
         <Title>Recipes of the Day</Title>
         <RecipesList />
+        <SearchButton />
       </Layout>
     </div>
   )

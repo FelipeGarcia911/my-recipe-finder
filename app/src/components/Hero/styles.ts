@@ -7,7 +7,7 @@ export const Container = styled.div<{ bgImage: string }>`
   background-position: center;
   background-image: url(${({ bgImage }) => bgImage});
   display: flex;
-  height: 70vh;
+  height: 60vh;
   min-height: 20rem;
   justify-content: center;
   width: 100%;
