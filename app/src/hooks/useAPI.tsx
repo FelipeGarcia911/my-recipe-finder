@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import api from '@/services/recipes'
+import { getRecipesForList } from '@/utils/recipes'
+import { RecipeListItem } from '@/components/interfaces'
 
 const useRecipes = () => {
   const [loading, setLoading] = useState(false)
 
-  const getRandomRecipes = async () => {
+  const getRandomRecipesList = async (): Promise<RecipeListItem[] | null> => {
     let response = null
     try {
       setLoading(true)
       const result = await api.getRandomRecipies(5)
-      response = result
+      response = getRecipesForList(result)
     } catch (error) {
       console.error('Hook', error)
     } finally {
@@ -49,7 +51,7 @@ const useRecipes = () => {
     return response
   }
 
-  return { getRandomRecipes, getRecipeDetails, searchRecipe, loading }
+  return { getRandomRecipesList, getRecipeDetails, searchRecipe, loading }
 }
 
 export default useRecipes

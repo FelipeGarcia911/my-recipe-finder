@@ -1,7 +1,11 @@
 import axios, { Method } from 'axios'
 
+interface HTTPResponse {
+  response: any
+}
+
 const instance = axios.create({
-  baseURL: 'www.themealdb.com/api/json/v1/1/',
+  baseURL: 'https://www.themealdb.com/api/json/v1/1/',
   headers: {},
 })
 export interface httpRequestProps {
@@ -11,14 +15,18 @@ export interface httpRequestProps {
   data?: any
 }
 
-const httpRequest = async (payload: httpRequestProps) => {
+const httpRequest = async (payload: httpRequestProps): Promise<HTTPResponse> => {
   const { method, url, params, data } = payload
+  let response = null
   try {
-    const response = await instance({ method, url, params, data })
-    return response
+    const config = { method, url, params, data }
+    const { data: result, status } = await instance(config)
+    if (status === 200) response = result
   } catch (error) {
     console.error('httpRequest', error)
   }
+
+  return response
 }
 
 export default httpRequest
