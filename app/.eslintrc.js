@@ -1,10 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    'plugin:import/recommended',
     'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'prettier/@typescript-eslint',
   ],
   settings: {
     react: {
@@ -13,8 +14,6 @@ module.exports = {
   },
   env: {
     browser: true,
-    node: true,
-    es6: true,
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   parserOptions: {
@@ -31,5 +30,13 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
+    },
   },
 }
