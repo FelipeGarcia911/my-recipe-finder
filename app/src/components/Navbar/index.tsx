@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { navigate } from 'gatsby'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-import SearchBar from '@/components/SearchBar'
+import ROUTES from '@/constants/routes'
 
 import logoImage from '@/images/logo.png'
 
 import { Container, Icon, Logo } from './styles'
-import ROUTES from '@/constants/routes'
+import SuspenseComponent from '../Suspense'
+
+const SearchBar = lazy(() => import('@/components/SearchBar'))
 
 interface NavbarProps {
   children?: React.ReactNode
@@ -32,10 +34,12 @@ const Navbar: React.FC<NavbarProps> = (props) => {
       {!isHome && <Icon onClick={handleOnBack} icon={faArrowLeft} size="lg" />}
       <Logo onClick={handleOnBack} src={logoImage}></Logo>
       {showSearchBar && (
-        <SearchBar
-          onInputChange={handleOnSearchBarChange}
-          handleOnClose={handleOnClose}
-        />
+        <SuspenseComponent>
+          <SearchBar
+            onInputChange={handleOnSearchBarChange}
+            handleOnClose={handleOnClose}
+          />
+        </SuspenseComponent>
       )}
     </Container>
   )

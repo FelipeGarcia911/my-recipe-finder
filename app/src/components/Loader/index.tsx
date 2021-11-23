@@ -4,7 +4,7 @@ import { Container, LoaderImg } from './styles'
 import LoaderIcon from '@/images/loader.gif'
 
 interface LoaderProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   loading: boolean
 }
 

@@ -1,13 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, Suspense, lazy } from 'react'
 import { debounce } from 'lodash'
 
 import useRecipes from '@/hooks/useRecipes'
+
 import { RecipeListItem } from '@/components/interfaces'
+import SuspenseComponent from '@/components/Suspense'
 
 import { Container, NoResults } from './styles'
-import RecipeItem from '../RecipeItem'
 
 const initList: RecipeListItem[] = []
+const RecipeItem = lazy(() => import('@/components/RecipeItem'))
+
 interface RecipeListProps {
   search?: string
   isSearchBarVisible: boolean
@@ -33,9 +36,12 @@ const RecipesList: React.FC<RecipeListProps> = ({
     }
   }
 
-  const debouncedGetRecipes = useCallback(debounce(getRecipes, 300),[])
+  const debouncedGetRecipes = useCallback(debounce(getRecipes, 300), [])
 
-  const debouncedSearchRecipes = useCallback(debounce(getRecipesBySearch, 300),[])
+  const debouncedSearchRecipes = useCallback(
+    debounce(getRecipesBySearch, 300),
+    []
+  )
 
   useEffect(() => {
     debouncedGetRecipes()
@@ -55,7 +61,9 @@ const RecipesList: React.FC<RecipeListProps> = ({
       {hasRecipes ? (
         <>
           {recipes.map((recipe, idx) => (
-            <RecipeItem key={idx} recipe={recipe} />
+            <SuspenseComponent>
+              <RecipeItem key={idx} recipe={recipe} />
+            </SuspenseComponent>
           ))}
         </>
       ) : (
