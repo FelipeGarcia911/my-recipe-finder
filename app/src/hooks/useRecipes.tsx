@@ -21,12 +21,12 @@ const useRecipes = () => {
     return response
   }
 
-  const searchRecipe = async (string: string) => {
+  const searchRecipe = async (string: string): Promise<RecipeListItem[] | null> => {
     let response = null
     try {
       setLoading(true)
       const result = await api.searchRecipe(string)
-      response = result
+      response = parseRecipesForList(result)
     } catch (error) {
       console.error('Hook', error)
     } finally {

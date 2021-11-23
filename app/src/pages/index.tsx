@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Layout from '@/components/Layout'
 import Hero from '@/components/Hero'
@@ -14,22 +14,35 @@ import SearchButton from '@/components/SearchButton'
 
 const Title = styled(Typography.Title2)`
   text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
   color: ${theme.colors.gray};
 `
 
-const IndexPage = () => {
+interface IndePageProps {}
+
+const IndexPage: React.FC<IndePageProps> = () => {
+  const [search, setSearch] = useState('')
+  const [showSearchBar, setShowSearchBar] = useState(false)
+  const handleOnSearchBarChange = (string: string) => setSearch(string)
+
+  const toogleSearchBar = () => setShowSearchBar(!showSearchBar)
+
   return (
     <div>
-      <Navbar isHome={true} />
+      <Navbar
+        handleOnClose={toogleSearchBar}
+        handleOnSearchBarChange={handleOnSearchBarChange}
+        isHome={true}
+        showSearchBar={showSearchBar}
+      />
       <Layout>
         <Hero bgImage={bgImage}>
           <img src={logoImage} />
         </Hero>
         <Title>Recipes of the Day</Title>
-        <RecipesList />
-        <SearchButton />
+        <RecipesList search={search} isSearchBarVisible={showSearchBar} />
+        <SearchButton handleOnClick={toogleSearchBar} />
       </Layout>
     </div>
   )

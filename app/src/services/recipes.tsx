@@ -15,7 +15,8 @@ const searchRecipe = async (string: string) => {
     method: 'GET',
     url: `search.php?s=${string}`,
   }
-  const response = await httpRequest(payload)
+  let response = await httpRequest(payload)
+  if (response) response = get(response, 'meals')
 
   return response
 }

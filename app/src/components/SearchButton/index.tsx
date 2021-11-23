@@ -4,10 +4,11 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import { Container, Icon } from './styles'
 
-const SearchButton = () => {
-  const handleOnClick = () => {
-    console.log('click')
-  }
+interface SearchButtonProps {
+  handleOnClick(): void
+}
+
+const SearchButton: React.FC<SearchButtonProps> = ({ handleOnClick }) => {
   return (
     <Container onClick={handleOnClick}>
       <Icon icon={faSearch} />
