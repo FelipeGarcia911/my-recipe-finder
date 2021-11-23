@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import queryString from 'query-string'
+import { navigate } from 'gatsby-link'
 
 import Layout from '@/components/Layout'
 import Loader from '@/components/Loader'
-import useRecipes from '@/hooks/useRecipes'
 import RecipeDetails from '@/components/RecipeDetails'
-import { navigate } from 'gatsby-link'
+import Navbar from '@/components/Navbar'
+
 import ROUTES from '@/constants/routes'
+import useRecipes from '@/hooks/useRecipes'
 
 const DetailsPage = (props) => {
   const { loading, getRecipeDetails } = useRecipes()
@@ -33,7 +35,6 @@ const DetailsPage = (props) => {
   }
 
   useEffect(() => {
-    console.log(props)
     const id = getRecipeId()
     if (id) {
       getRecipe(id)
@@ -43,11 +44,14 @@ const DetailsPage = (props) => {
   }, [])
 
   return (
-    <Layout>
-      <Loader loading={isLoading}>
-        <RecipeDetails recipe={recipe} />
-      </Loader>
-    </Layout>
+    <div>
+      <Navbar />
+      <Layout>
+        <Loader loading={isLoading}>
+          <RecipeDetails recipe={recipe} />
+        </Loader>
+      </Layout>
+    </div>
   )
 }
 

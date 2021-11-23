@@ -1,7 +1,8 @@
 import { Link } from 'gatsby'
 
 import { mq } from '@/styles/media'
-import { styled } from '@/styles/theme'
+import { styled, theme } from '@/styles/theme'
+import Typography from '@/styles/typography'
 
 export const Container = styled(Link)`
   align-items: center;
@@ -10,13 +11,14 @@ export const Container = styled(Link)`
   justify-content: center;
   margin-bottom: 3rem;
   width: 100%;
+  text-decoration: none;
 `
 
-export const Title = styled.div`
-  font-size: 2.5rem;
-  font-weight: 500;
+export const Title = styled(Typography.Title)`
+  color: ${theme.colors.black};
   margin-bottom: 2rem;
   text-align: center;
+  text-decoration: none;
 `
 
 export const Image = styled.div<{ bgImage: string }>`

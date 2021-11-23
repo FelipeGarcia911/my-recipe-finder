@@ -1,8 +1,14 @@
 import { styled } from '@/styles/theme'
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 500;
+`
+
+const Title2 = styled.h1`
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 200;
 `
 
 const Subtitle = styled.h3`
@@ -15,6 +21,6 @@ const Body1 = styled.p`
   font-weight: 300;
 `
 
-const Typography = { Title, Subtitle, Body1 }
+const Typography = { Title, Title2, Subtitle, Body1 }
 
 export default Typography
