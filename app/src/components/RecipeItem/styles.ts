@@ -1,13 +1,14 @@
+import { Link } from 'gatsby'
+
 import { mq } from '@/styles/media'
 import { styled } from '@/styles/theme'
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 3rem;
-  cursor: pointer;
   width: 100%;
 `
 
@@ -19,7 +20,9 @@ export const Title = styled.div`
 `
 
 export const Image = styled.div<{ bgImage: string }>`
-  background: url(${({ bgImage }) => bgImage}) no-repeat center;
+  background-image: url(${({ bgImage }) => bgImage});
+  background-size: cover;
+  background-position: center;
   height: 20rem;
   width: 100%;
 `

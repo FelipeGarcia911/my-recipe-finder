@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import api from '@/services/recipes'
-import { getRecipesForList } from '@/utils/recipes'
-import { RecipeListItem } from '@/components/interfaces'
+import { parseRecipesForList, parseRecipeDetails } from '@/utils/recipes'
+import { RecipeDetailsProps, RecipeListItem } from '@/components/interfaces'
 
 const useRecipes = () => {
   const [loading, setLoading] = useState(false)
@@ -11,7 +11,7 @@ const useRecipes = () => {
     try {
       setLoading(true)
       const result = await api.getRandomRecipies(5)
-      response = getRecipesForList(result)
+      response = parseRecipesForList(result)
     } catch (error) {
       console.error('Hook', error)
     } finally {
@@ -36,12 +36,13 @@ const useRecipes = () => {
     return response
   }
 
-  const getRecipeDetails = async (id: string) => {
+  const getRecipeDetails = async (id: string): Promise<RecipeDetailsProps | null> => {
     let response = null
     try {
       setLoading(true)
       const result = await api.getRecipeDetails(id)
-      response = result
+      response = parseRecipeDetails(result)
+      console.log(response)
     } catch (error) {
       console.error('Hook', error)
     } finally {

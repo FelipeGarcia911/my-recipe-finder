@@ -4,7 +4,9 @@ import httpRequest, { httpRequestProps } from '@/utils/http'
 
 const getRecipeDetails = async (id: string) => {
   const payload: httpRequestProps = { method: 'GET', url: `lookup.php?i=${id}` }
-  const response = await httpRequest(payload)
+  let response = await httpRequest(payload)
+  if (response) response = get(response, 'meals[0]')
+
   return response
 }
 

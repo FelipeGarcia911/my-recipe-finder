@@ -1,14 +1,13 @@
 import React from 'react'
-import { Container, Logo } from './styles'
-import BackgroundImg from '@/images/home-background.jpg'
-import LogoImg from '@/images/logo.png'
+import { Container } from './styles'
 
-const Hero: React.FC = () => {
-  return (
-    <Container bgImage={BackgroundImg}>
-      <Logo src={LogoImg} />
-    </Container>
-  )
+interface HeroProps {
+  children?: React.ReactNode
+  bgImage?: string
+}
+
+const Hero: React.FC<HeroProps> = ({ children, bgImage }) => {
+  return <Container bgImage={bgImage}>{children}</Container>
 }
 
 export default Hero

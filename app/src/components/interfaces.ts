@@ -3,3 +3,10 @@ export interface RecipeListItem {
   image: string
   title: string
 }
+
+export interface RecipeDetailsProps {
+  directions: string
+  image: string
+  ingredientes: string[]
+  title: string
+}

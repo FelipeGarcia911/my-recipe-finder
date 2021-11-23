@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import useRecipes from '@/hooks/useAPI'
+import useRecipes from '@/hooks/useRecipes'
 import { RecipeListItem } from '@/components/interfaces'
 
 import { Container } from './styles'

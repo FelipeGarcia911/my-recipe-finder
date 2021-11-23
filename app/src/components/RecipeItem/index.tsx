@@ -1,3 +1,4 @@
+import ROUTES from '@/constants/routes'
 import React from 'react'
 
 import { Container, Image, Title } from './styles'
@@ -15,12 +16,10 @@ const RecipeItem: React.FC<RecipeItemProps> = (props) => {
   const { recipe } = props
   const { title, image, id } = recipe
 
-  const handleOnClick = () => {
-    console.log(id)
-  }
+  const detailsURL = `${ROUTES.DETAILS}?id=${id}`
 
   return (
-    <Container onClick={handleOnClick}>
+    <Container to={detailsURL}>
       <Title>{title}</Title>
       <Image bgImage={image} />
     </Container>
