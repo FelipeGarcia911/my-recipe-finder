@@ -1,6 +1,6 @@
 const fonts = {
-  heading: 'Apercu, sans-serif',
-  body: 'Apercu, sans-serif',
+  heading: '-apple-system, Roboto, sans-serif, serif',
+  body: '-apple-system, Roboto, sans-serif, serif',
 }
 
 export default fonts
