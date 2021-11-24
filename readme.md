@@ -9,6 +9,9 @@
 4. Use of Image Lazy Loading.
 5. Centralized Typography.
 6. Centralized Theme (colors, fonts).
+7. Use of debouncing to block burst calls.
+8. Use of Context to create a basic state management.
+9. Use of Styled Componets.
 
 # Possible Improvements
 1. Use of Redux to state management.

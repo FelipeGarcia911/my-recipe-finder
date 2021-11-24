@@ -46,7 +46,6 @@ const useRecipes = () => {
       setLoading(true)
       const result = await api.getRecipeDetails(id)
       response = parseRecipeDetails(result)
-      console.log(response)
     } catch (error) {
       console.error('Hook', error)
     } finally {

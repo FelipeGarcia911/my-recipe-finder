@@ -2,13 +2,33 @@ import { styled, theme } from '@/styles/theme'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+export const LeftSide = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-start;
+`
+
+export const RightSide = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+`
+
+export const IconsZone = styled.div`
+  margin-right: 0;
+  margin-left: auto;
+`
+
 export const Icon = styled(FontAwesomeIcon)`
   cursor: pointer;
   margin-right: 0.5rem;
 `
 
 export const Container = styled.div`
-  align-items: center;
   background: ${theme.colors.gray};
   box-shadow: 2px 3px 10px 3px ${theme.colors.black};
   color: ${theme.colors.white};
@@ -24,6 +44,7 @@ export const Container = styled.div`
 `
 
 export const Logo = styled.img`
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
 `

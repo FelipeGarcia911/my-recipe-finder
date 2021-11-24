@@ -11,8 +11,7 @@ export const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin-right: 0;
-  margin-left: auto;
+  margin-right: 1rem;
 `
 
 export const Input = styled.input`

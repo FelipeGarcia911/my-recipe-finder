@@ -6,21 +6,23 @@ import ROUTES from '@/constants/routes'
 
 import logoImage from '@/images/logo.png'
 
-import { Container, Icon, Logo } from './styles'
-import SuspenseComponent from '../Suspense'
+import { Container, Icon, IconsZone, LeftSide, Logo, RightSide } from './styles'
+import SuspenseComponent from '@/components/Suspense'
+import FavoriteIcon from '../FavoriteIcon'
 
 const SearchBar = lazy(() => import('@/components/SearchBar'))
 
 interface NavbarProps {
   children?: React.ReactNode
-  handleOnSearchBarChange?(string: string): void
   handleOnClose?(): void
+  handleOnSearchBarChange?(string: string): void
   isHome?: boolean
   showSearchBar?: boolean
 }
 
 const Navbar: React.FC<NavbarProps> = (props) => {
   const {
+    children,
     handleOnClose,
     handleOnSearchBarChange,
     isHome = false,
@@ -31,16 +33,24 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
   return (
     <Container>
-      {!isHome && <Icon onClick={handleOnBack} icon={faArrowLeft} size="lg" />}
-      <Logo onClick={handleOnBack} src={logoImage}></Logo>
-      {showSearchBar && (
-        <SuspenseComponent>
-          <SearchBar
-            onInputChange={handleOnSearchBarChange}
-            handleOnClose={handleOnClose}
-          />
-        </SuspenseComponent>
-      )}
+      <LeftSide>
+        {!isHome && (
+          <Icon onClick={handleOnBack} icon={faArrowLeft} size="2x" />
+        )}
+        <Logo onClick={handleOnBack} src={logoImage}></Logo>
+      </LeftSide>
+      <RightSide>
+        {showSearchBar && (
+          <SuspenseComponent>
+            <SearchBar
+              onInputChange={handleOnSearchBarChange}
+              handleOnClose={handleOnClose}
+            />
+          </SuspenseComponent>
+        )}
+        {children && <IconsZone>{children}</IconsZone>}
+        <FavoriteIcon />
+      </RightSide>
     </Container>
   )
 }

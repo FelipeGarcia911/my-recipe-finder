@@ -4,12 +4,10 @@ import _ from 'lodash'
 import useRecipes from '@/hooks/useRecipes'
 
 import { RecipeListItem } from '@/components/interfaces'
-import SuspenseComponent from '@/components/Suspense'
 
-import { Container, NoResults } from './styles'
+import GenericRecipesList from '../GenericRecipesList'
 
 const initList: RecipeListItem[] = []
-const RecipeItem = lazy(() => import('@/components/RecipeItem'))
 
 interface RecipeListProps {
   search?: string
@@ -22,7 +20,6 @@ const RecipesList: React.FC<RecipeListProps> = ({
 }) => {
   const { loading, getRandomRecipesList, searchRecipe } = useRecipes()
   const [recipes, setRecipes] = useState(initList)
-  const hasRecipes = recipes && recipes.length
 
   const getRecipes = async () => {
     const response = await getRandomRecipesList()
@@ -56,21 +53,7 @@ const RecipesList: React.FC<RecipeListProps> = ({
     debouncedSearchRecipes(search)
   }, [search])
 
-  return (
-    <Container loading={loading}>
-      {hasRecipes ? (
-        <>
-          {recipes.map((recipe, idx) => (
-            <SuspenseComponent key={idx}>
-              <RecipeItem key={idx} recipe={recipe} />
-            </SuspenseComponent>
-          ))}
-        </>
-      ) : (
-        <NoResults>No results</NoResults>
-      )}
-    </Container>
-  )
+  return <GenericRecipesList loading={loading} recipes={recipes} />
 }
 
 export default RecipesList

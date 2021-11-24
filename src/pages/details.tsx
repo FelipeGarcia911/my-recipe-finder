@@ -10,14 +10,18 @@ import Navbar from '@/components/Navbar'
 import ROUTES from '@/constants/routes'
 import useRecipes from '@/hooks/useRecipes'
 
-const DetailsPage = (props) => {
+import Providers from '@/providers/Providers'
+import FavoriteButton from '@/components/FavoritesButton'
+
+const DetailsPage: React.FC<{}> = (props) => {
   const { loading, getRecipeDetails } = useRecipes()
+
   const [recipe, setRecipe] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  const getRecipeId = () => {
+  const getRecipeId = (): string => {
     const urlParams = parse(props.location.search)
-    return urlParams?.id
+    return `${urlParams?.id}`
   }
 
   const handleOnInvalid = () => {
@@ -44,14 +48,15 @@ const DetailsPage = (props) => {
   }, [])
 
   return (
-    <div>
+    <Providers>
       <Navbar />
       <Layout>
         <Loader loading={isLoading}>
           <RecipeDetails recipe={recipe} />
         </Loader>
+        <FavoriteButton recipe={recipe} />
       </Layout>
-    </div>
+    </Providers>
   )
 }
 
