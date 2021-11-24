@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { mq } from '@/styles/media'
 import { styled, theme } from '@/styles/theme'
 import Typography from '@/styles/typography'
+import LazyImage from '@/components/LazyImage'
 
 export const Container = styled(Link)`
   align-items: center;
@@ -21,10 +22,6 @@ export const Title = styled(Typography.Title)`
   text-decoration: none;
 `
 
-export const Image = styled.div<{ bgImage: string }>`
-  background-image: url(${({ bgImage }) => bgImage});
-  background-size: cover;
-  background-position: center;
-  height: 20rem;
+export const Image = styled(LazyImage)`
   width: 100%;
 `

@@ -3,6 +3,6 @@ import { styled, theme } from '@/styles/theme'
 
 export const Container = styled.main`
   font-family: ${theme.fonts.body};
-  margin: 0 auto;
+  margin: 3.2rem auto 0 auto;
   max-width: ${breakpoints.xl}px;
 `
