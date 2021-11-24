@@ -15,7 +15,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "heroku-postbuild": "gatsby build"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.0",
