@@ -8,14 +8,16 @@ const instance = axios.create({
   baseURL: 'https://www.themealdb.com/api/json/v1/1/',
   headers: {},
 })
-export interface httpRequestProps {
+export interface HTTPRequestProps {
   method: Method
   url: string
   params?: any
   data?: any
 }
 
-const httpRequest = async (payload: httpRequestProps): Promise<HTTPResponse> => {
+const httpRequest = async (
+  payload: HTTPRequestProps
+): Promise<HTTPResponse> => {
   const { method, url, params, data } = payload
   let response = null
   try {

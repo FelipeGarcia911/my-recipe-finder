@@ -27,7 +27,7 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
 
   useEffect(() => {
     setValue('')
-    inputRef?.current?.focus();
+    inputRef?.current?.focus()
   }, [])
 
   return (

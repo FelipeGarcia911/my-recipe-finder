@@ -21,7 +21,7 @@ const RecipeItem: React.FC<RecipeItemProps> = (props) => {
   return (
     <Container to={detailsURL}>
       <Title>{title}</Title>
-      <Image src={image} alt={title} height="250px"/>
+      <Image src={image} alt={title} height="250px" />
     </Container>
   )
 }

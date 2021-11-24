@@ -4,6 +4,9 @@
   "private": true,
   "description": "My Recipe Finder",
   "author": "Felipe García",
+  "engines": {
+    "node": "14.15.0"
+  },
   "keywords": [
     "gatsby"
   ],

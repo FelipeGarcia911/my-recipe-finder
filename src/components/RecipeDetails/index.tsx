@@ -15,8 +15,8 @@ const RecipeDetails: React.FC<DetailsProps> = (props) => {
     <Container>
       <Hero bgImage={recipe?.image} />
       <Title>{recipe?.title}</Title>
-      {recipe?.ingredientes.map((ingredient) => (
-        <Ingredient>{ingredient}</Ingredient>
+      {recipe?.ingredientes.map((ingredient, idx) => (
+        <Ingredient key={idx}>{ingredient}</Ingredient>
       ))}
       <Title>Directions</Title>
       <Directions>{recipe?.directions}</Directions>

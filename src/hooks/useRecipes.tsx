@@ -21,7 +21,9 @@ const useRecipes = () => {
     return response
   }
 
-  const searchRecipe = async (string: string): Promise<RecipeListItem[] | null> => {
+  const searchRecipe = async (
+    string: string
+  ): Promise<RecipeListItem[] | null> => {
     let response = null
     try {
       setLoading(true)
@@ -36,7 +38,9 @@ const useRecipes = () => {
     return response
   }
 
-  const getRecipeDetails = async (id: string): Promise<RecipeDetailsProps | null> => {
+  const getRecipeDetails = async (
+    id: string
+  ): Promise<RecipeDetailsProps | null> => {
     let response = null
     try {
       setLoading(true)

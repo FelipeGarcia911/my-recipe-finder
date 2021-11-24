@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import queryString from 'query-string'
+import { parse } from 'query-string'
 import { navigate } from 'gatsby-link'
 
 import Layout from '@/components/Layout'
@@ -16,8 +16,12 @@ const DetailsPage = (props) => {
   const [isLoading, setIsLoading] = useState(true)
 
   const getRecipeId = () => {
-    const urlParams = queryString.parse(props.location.search)
+    const urlParams = parse(props.location.search)
     return urlParams?.id
+  }
+
+  const handleOnInvalid = () => {
+    navigate(ROUTES.HOME)
   }
 
   const getRecipe = async (id: string) => {
@@ -28,10 +32,6 @@ const DetailsPage = (props) => {
       handleOnInvalid()
     }
     setIsLoading(loading)
-  }
-
-  const handleOnInvalid = () => {
-    navigate(ROUTES.HOME)
   }
 
   useEffect(() => {

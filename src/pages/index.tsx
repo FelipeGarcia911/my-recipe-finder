@@ -19,9 +19,7 @@ const Title = styled(Typography.Title2)`
   color: ${theme.colors.gray};
 `
 
-interface IndePageProps {}
-
-const IndexPage: React.FC<IndePageProps> = () => {
+const IndexPage: React.FC<{}> = () => {
   const [search, setSearch] = useState('')
   const [showSearchBar, setShowSearchBar] = useState(false)
   const handleOnSearchBarChange = (string: string) => setSearch(string)

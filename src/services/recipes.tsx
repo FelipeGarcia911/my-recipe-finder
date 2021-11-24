@@ -1,30 +1,30 @@
-import { get } from 'lodash'
+import _ from 'lodash'
 
-import httpRequest, { httpRequestProps } from '@/utils/http'
+import httpRequest, { HTTPRequestProps } from '@/utils/http'
 
 const getRecipeDetails = async (id: string) => {
-  const payload: httpRequestProps = { method: 'GET', url: `lookup.php?i=${id}` }
+  const payload: HTTPRequestProps = { method: 'GET', url: `lookup.php?i=${id}` }
   let response = await httpRequest(payload)
-  if (response) response = get(response, 'meals[0]')
+  if (response) response = _.get(response, 'meals[0]')
 
   return response
 }
 
 const searchRecipe = async (string: string) => {
-  const payload: httpRequestProps = {
+  const payload: HTTPRequestProps = {
     method: 'GET',
     url: `search.php?s=${string}`,
   }
   let response = await httpRequest(payload)
-  if (response) response = get(response, 'meals')
+  if (response) response = _.get(response, 'meals')
 
   return response
 }
 
 const getRandomRecipe = async () => {
-  const payload: httpRequestProps = { method: 'GET', url: `random.php` }
+  const payload: HTTPRequestProps = { method: 'GET', url: `random.php` }
   let response = await httpRequest(payload)
-  if (response) response = get(response, 'meals[0]')
+  if (response) response = _.get(response, 'meals[0]')
 
   return response
 }

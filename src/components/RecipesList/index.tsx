@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState, Suspense, lazy } from 'react'
-import { debounce } from 'lodash'
+import React, { useCallback, useEffect, useState, lazy } from 'react'
+import _ from 'lodash'
 
 import useRecipes from '@/hooks/useRecipes'
 
@@ -36,10 +36,10 @@ const RecipesList: React.FC<RecipeListProps> = ({
     }
   }
 
-  const debouncedGetRecipes = useCallback(debounce(getRecipes, 300), [])
+  const debouncedGetRecipes = useCallback(_.debounce(getRecipes, 300), [])
 
   const debouncedSearchRecipes = useCallback(
-    debounce(getRecipesBySearch, 300),
+    _.debounce(getRecipesBySearch, 300),
     []
   )
 
@@ -61,7 +61,7 @@ const RecipesList: React.FC<RecipeListProps> = ({
       {hasRecipes ? (
         <>
           {recipes.map((recipe, idx) => (
-            <SuspenseComponent>
+            <SuspenseComponent key={idx}>
               <RecipeItem key={idx} recipe={recipe} />
             </SuspenseComponent>
           ))}
