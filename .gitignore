@@ -1,3 +1,7 @@
-.history
-node_modules
+# Files
 .DS_Store
+
+# Folders
+node_modules/
+.cache/
+public
