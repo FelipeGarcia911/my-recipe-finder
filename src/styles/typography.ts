@@ -17,7 +17,7 @@ const Subtitle = styled.h3`
 `
 
 const Body1 = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
 `
 

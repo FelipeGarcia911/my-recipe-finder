@@ -1,4 +1,3 @@
-import { mq } from '@/styles/media'
 import { styled } from '@/styles/theme'
 
 export const Container = styled.div`
@@ -9,5 +8,5 @@ export const Container = styled.div`
 `
 
 export const LoaderImg = styled.img`
-    margin-top: 2rem;
+  margin-top: 2rem;
 `

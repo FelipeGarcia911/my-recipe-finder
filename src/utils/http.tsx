@@ -1,3 +1,4 @@
+import { ENDPOINT } from '@/constants/api'
 import axios, { Method } from 'axios'
 
 interface HTTPResponse {
@@ -5,7 +6,7 @@ interface HTTPResponse {
 }
 
 const instance = axios.create({
-  baseURL: 'https://www.themealdb.com/api/json/v1/1/',
+  baseURL: ENDPOINT,
   headers: {},
 })
 export interface HTTPRequestProps {

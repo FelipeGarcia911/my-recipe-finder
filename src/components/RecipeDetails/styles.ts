@@ -1,4 +1,3 @@
-import { mq } from '@/styles/media'
 import { styled } from '@/styles/theme'
 import Typography from '@/styles/typography'
 

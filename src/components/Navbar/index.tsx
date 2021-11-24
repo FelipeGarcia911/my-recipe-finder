@@ -13,10 +13,10 @@ const SearchBar = lazy(() => import('@/components/SearchBar'))
 
 interface NavbarProps {
   children?: React.ReactNode
-  handleOnSearchBarChange(string: string): void
-  handleOnClose(): void
-  isHome: boolean
-  showSearchBar: boolean
+  handleOnSearchBarChange?(string: string): void
+  handleOnClose?(): void
+  isHome?: boolean
+  showSearchBar?: boolean
 }
 
 const Navbar: React.FC<NavbarProps> = (props) => {

@@ -5,8 +5,8 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { Container, Icon, Input } from './styles'
 
 interface SearchBarProps {
-  onInputChange(string: string): void
-  handleOnClose(): void
+  onInputChange?(string: string): void
+  handleOnClose?(): void
 }
 
 const SearchBar: React.FC<SearchBarProps> = (props) => {
@@ -33,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
   return (
     <Container>
       <Input onChange={handleOnChange} value={value} ref={inputRef} />
-      <Icon icon={faTimes} onClick={onClearSearch} />
+      <Icon icon={faTimes} onClick={onClearSearch} size="2x"/>
     </Container>
   )
 }

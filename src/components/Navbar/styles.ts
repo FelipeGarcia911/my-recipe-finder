@@ -1,4 +1,3 @@
-import { mq } from '@/styles/media'
 import { styled, theme } from '@/styles/theme'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,12 +10,12 @@ export const Icon = styled(FontAwesomeIcon)`
 export const Container = styled.div`
   align-items: center;
   background: ${theme.colors.gray};
+  box-shadow: 2px 3px 10px 3px ${theme.colors.black};
   color: ${theme.colors.white};
   cursor: pointer;
   display: flex;
   flex-direction: row;
   height: 3rem;
-  justify-content: space-between;
   left: 0;
   padding: 0.1rem 1rem;
   position: fixed;

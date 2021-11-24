@@ -9,13 +9,14 @@ import { styled, theme } from '@/styles/theme'
 
 import logoImage from '@/images/logo.png'
 import bgImage from '@/images/home-background.jpg'
+
 import Typography from '@/styles/typography'
 import SearchButton from '@/components/SearchButton'
 
 const Title = styled(Typography.Title2)`
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
   color: ${theme.colors.gray};
 `
 

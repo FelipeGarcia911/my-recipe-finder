@@ -11,7 +11,7 @@ interface SearchButtonProps {
 const SearchButton: React.FC<SearchButtonProps> = ({ handleOnClick }) => {
   return (
     <Container onClick={handleOnClick}>
-      <Icon icon={faSearch} />
+      <Icon icon={faSearch} size="2x" />
     </Container>
   )
 }
