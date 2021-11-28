@@ -16,8 +16,6 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -29,9 +27,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true,
       },
     },
     {

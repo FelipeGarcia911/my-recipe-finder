@@ -12,6 +12,7 @@ import useRecipes from '@/hooks/useRecipes'
 
 import Providers from '@/providers/Providers'
 import FavoriteButton from '@/components/FavoritesButton'
+import SEO from '@/components/Common/SEO'
 
 const DetailsPage: React.FC<{}> = (props) => {
   const { loading, getRecipeDetails } = useRecipes()
@@ -49,6 +50,7 @@ const DetailsPage: React.FC<{}> = (props) => {
 
   return (
     <Providers>
+      <SEO title="Details" />
       <Navbar />
       <Layout>
         <Loader loading={isLoading}>

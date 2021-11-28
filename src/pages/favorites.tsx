@@ -14,6 +14,7 @@ import GenericRecipesList from '@/components/GenericRecipesList'
 
 import Providers from '@/providers/Providers'
 import { AppContext } from '@/providers/AppProvider'
+import SEO from '@/components/Common/SEO'
 
 const Title = styled(Typography.Title2)`
   text-align: center;
@@ -25,6 +26,7 @@ const Title = styled(Typography.Title2)`
 const FavoritesPage: React.FC<{}> = () => {
   return (
     <Providers>
+      <SEO title="Favorites" />
       <Navbar />
       <Layout>
         <Hero bgImage={bgImage}>

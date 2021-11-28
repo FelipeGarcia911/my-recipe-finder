@@ -13,6 +13,7 @@ import bgImage from '@/images/home-background.jpg'
 import Typography from '@/styles/typography'
 import SearchButton from '@/components/SearchButton'
 import Providers from '@/providers/Providers'
+import SEO from '@/components/Common/SEO'
 
 const Title = styled(Typography.Title2)`
   text-align: center;
@@ -30,6 +31,7 @@ const IndexPage: React.FC<{}> = () => {
 
   return (
     <Providers>
+      <SEO title="Home" />
       <Navbar
         handleOnClose={toogleSearchBar}
         handleOnSearchBarChange={handleOnSearchBarChange}
@@ -38,7 +40,7 @@ const IndexPage: React.FC<{}> = () => {
       />
       <Layout>
         <Hero bgImage={bgImage}>
-          <img src={logoImage} alt="Site's Logo"/>
+          <img src={logoImage} alt="Site's Logo" />
         </Hero>
         <Title>Recipes of the Day</Title>
         <RecipesList search={search} isSearchBarVisible={showSearchBar} />
